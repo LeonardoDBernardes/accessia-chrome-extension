@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>AccessIA</title>
+  <style>
+    body { font-family: Arial, sans-serif; width: 320px; padding: 12px; font-size: 14px; }
+    h1 { font-size: 16px; margin: 0 0 10px 0; }
+    .status { background: #f0f0f0; border-radius: 4px; padding: 8px; margin-bottom: 10px; }
+    .status-item { display: flex; justify-content: space-between; margin: 4px 0; }
+    .badge { background: #2196F3; color: white; border-radius: 10px; padding: 1px 7px; font-size: 12px; }
+    .badge.ok { background: #4CAF50; } .badge.warn { background: #FF9800; }
+    button { width: 100%; margin: 4px 0; padding: 8px; cursor: pointer; border: 1px solid #ccc; border-radius: 4px; background: white; font-size: 14px; }
+    button:hover { background: #e8e8e8; }
+    button.primary { background: #2196F3; color: white; border-color: #1976D2; }
+    button.primary:hover { background: #1976D2; }
+    .historico { max-height: 150px; overflow-y: auto; margin-top: 8px; font-size: 12px; }
+    .historico-item { border-bottom: 1px solid #eee; padding: 4px 0; }
+    .historico-item .url { color: #666; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .historico-item .resumo { color: #333; }
+  </style>
+</head>
+<body>
+  <h1>AccessIA</h1>
+  <div class="status">
+    <div class="status-item"><span>Na fila:</span><span id="fila_count" class="badge">0</span></div>
+    <div class="status-item"><span>Processando:</span><span id="processando" class="badge ok">não</span></div>
+    <div class="status-item"><span>Servidor:</span><span id="servidor_status" class="badge">verificando...</span></div>
+  </div>
+  <button class="primary" id="btn_analisar">Analisar página atual agora</button>
+  <button id="btn_favoritos">Escanear todos os favoritos</button>
+  <button id="btn_limpar">Limpar fila</button>
+  <button id="btn_config">Configurações (Alt+Shift+A)</button>
+  <div class="historico" id="historico" aria-label="Histórico de análises"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

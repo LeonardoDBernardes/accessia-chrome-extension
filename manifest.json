@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "AccessIA",
+  "version": "1.0.0",
+  "description": "Analisa acessibilidade WCAG de sites automaticamente e envia ao servidor AccessIA para análise profunda.",
+  "permissions": ["tabs","bookmarks","storage","notifications","alarms","scripting"],
+  "host_permissions": ["<all_urls>"],
+  "background": {"service_worker": "background.js"},
+  "content_scripts": [{"matches": ["http://*/*","https://*/*"],"js": ["content.js"],"run_at": "document_idle","all_frames": false}],
+  "action": {"default_popup": "popup.html","default_title": "AccessIA"},
+  "options_page": "options.html",
+  "commands": {
+    "open-options": {"suggested_key": {"default": "Alt+Shift+A"},"description": "Abrir configurações do AccessIA"},
+    "scan-current": {"suggested_key": {"default": "Alt+Shift+S"},"description": "Analisar página atual agora"}
+  }
+}
